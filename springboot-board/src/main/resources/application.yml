@@ -1,0 +1,15 @@
+server:
+  servlet:
+    encoding:
+      force-response: true
+
+spring:
+  profiles:
+    include:
+      - db
+  jpa:
+    show-sql: true
+    database-platform: org.hibernate.dialect.MySQL8Dialect
+    database: mysql
+    hibernate.ddl-auto: update
+
