@@ -14,12 +14,12 @@ public class UserService {
     public UserService(UserRepository userRepository) {
         this.userRepository = userRepository;
     }
-    public UserResponse getArticle(Long id){
-        Optional<User> optionalArticle = userRepository.findById(id);
-        if(optionalArticle.isPresent()){
-            User user = optionalArticle.get();
-            return User.of(user);
+    public UserResponse getUser(Long id){
+        Optional<User> optionalUser = userRepository.findById(id);
+        if(optionalUser.isEmpty()){
+            return new UserResponse(id,"","해당 id의 유저가 없습니다");
         }
-        return null;
+        User user = optionalUser.get();
+        return new UserResponse(user.getId(),user.getUsername(),user.getPassword());
     }
 }

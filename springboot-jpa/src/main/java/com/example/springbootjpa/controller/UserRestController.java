@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/api/v1/articles")
+@RequestMapping("/api/v1/users")
 public class UserRestController {
     private final UserService userService;
 
@@ -18,7 +18,7 @@ public class UserRestController {
     }
     @GetMapping("/{id}")
     public ResponseEntity<UserResponse> get(@PathVariable Long id) {
-        UserResponse userResponse = userService.getArticle(id);
+        UserResponse userResponse = userService.getUser(id);
         return ResponseEntity.ok().body(userResponse);
     }
 }
