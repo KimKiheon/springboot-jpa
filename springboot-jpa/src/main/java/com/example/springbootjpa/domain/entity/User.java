@@ -19,7 +19,11 @@ public class User {
     private String username;
     private String password;
 
-    public static UserResponse of(User user) {
-        return new UserResponse(user.getId(), user.getUsername(), user.getPassword());
+    public User(String username, String password) {
+        this.username = username;
+        this.password = password;
+    }
+    public static UserResponse toDTO(User user){
+        return new UserResponse(user.getUsername(), user.getPassword());
     }
 }

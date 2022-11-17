@@ -1,16 +1,18 @@
 package com.example.springbootjpa.domain.dto;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 @Getter
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
+@Data
 public class UserResponse {
-    private Long id;
     private String username;
     private String password;
+    private String message;
+    public UserResponse(String username, String password){
+        this.username=username;
+        this.password=password;
+    }
 }
