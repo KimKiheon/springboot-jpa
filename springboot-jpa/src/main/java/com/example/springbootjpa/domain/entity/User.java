@@ -1,6 +1,6 @@
 package com.example.springbootjpa.domain.entity;
 
-import com.example.springbootjpa.domain.dto.ArticleResponse;
+import com.example.springbootjpa.domain.dto.UserResponse;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -8,18 +8,18 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "article2")
+@Table(name = "users")
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
-public class Article {
+public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String title;
-    private String content;
+    private String username;
+    private String password;
 
-    public static ArticleResponse of(Article article) {
-        return new ArticleResponse(article.getId(), article.getTitle(), article.getContent());
+    public static UserResponse of(User user) {
+        return new UserResponse(user.getId(), user.getUsername(), user.getPassword());
     }
 }
